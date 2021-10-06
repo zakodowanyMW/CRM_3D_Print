@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.container {
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.login_form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 750px;
+    height: 480px;
+    background-color: white;
+    box-shadow: 15px 15px 80px 1px #132c36;
+}
+
+.container .wrapper {
+    background-color: #ffffff;
+    height: 100%;
+    display: flex;
+}
+
+.wrapper .img {
+    background-image: url('./assets/img/login_img.jpg');
+    flex-basis: 55%;
+    min-width: 55%;
+    height: 100%;
+    background-size: cover;
+}
+
+.form {
+    margin-top: 70px;
+    text-align: center;
+}
+
+.form p {
+    padding-top: 10px;
+    ;
+}
+
+.form form {
+    padding: 0px 30px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.form form input {
+    width: 100%;
+    padding: 14px 25px;
+    margin-bottom: 10px;
+    outline: none;
+    border: 1px solid #b6b6b6;
+}
+
+.form form input[type=submit] {
+    cursor: pointer;
+    background-color: seagreen;
+    color: white;
+    font-weight: bold;
+    outline: none;
+    border: 1px solid #056d4a;
+    padding: 14px 25px;
+}
+
+.close {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    top: 0;
+    background-color: #222222;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.close a {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+}
