@@ -1,11 +1,20 @@
 const Order = require('../../db/db')
 
-const showOrder = (req, res) => {
-    const orders = Order.find({}, (req, result) => {
-        res.send(result);
-    });
+
+//get all orders
+const getOrders = (req, res) => {
+    try{
+    Order.find({}, (req, result) => {
+        res.send(result); 
+    })
+    } catch(e) {
+        response.status(500).send(e);;
+    }       
 }
 
+
+
+//export 
 module.exports = {
-    showOrder: showOrder
+    getOrders
 }
