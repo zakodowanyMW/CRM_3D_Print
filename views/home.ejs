@@ -5,7 +5,14 @@
     <a href="/createOrder">Dodaj nowe zamówienie</a> </br>
     <a href="/showOrders">Pokaż listę zamówień</a> </br>
     <a href="/editOrder">Edytuj listę zamówień</a> </br>
-    <a href="/login.html">Zaloguj</a>
+    
+
+    <% if(user) { %>
+        <p> Witaj <%= user %> </p>
+        <p><a href="/logout"> Wyloguj </a></p>
+    <% } else { %>
+        <a href="/login.html">Zaloguj</a>
+     <% } %> 
 
 <%- include('./partials/footer'); -%>
 

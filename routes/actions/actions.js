@@ -1,5 +1,6 @@
 const Order = require('../../db/db')
-const User = require('../../db/models/Users')
+const User = require('../../db/models/Users');
+const bcrypt = require('bcrypt');
 
 const variable ="test variable past to view";
 
@@ -9,15 +10,20 @@ const register = (req, res) => {
         email: req.body.login,
         password: req.body.pass
     })
-    user.save();
-    res.redirect('/login.html');
+    try{
+        user.save();
+        res.redirect('/login.html');
+    }catch(e) {
+        console.log("Nie udało się zalogować")
+    }
 }
 
 // home
 const homepage = (req, res) => {
-    if(req.get){
+    if(req.session.user){
         res.render("home", {
-            variable
+            variable,
+            user: req.session.user.email
         })
     } else {
         res.redirect('/login.html')
@@ -63,11 +69,36 @@ const addOrder = (req, res) => {
     res.redirect("/");
 }
 
-const checkLogin = (req, res) => {
-    const param = req.body.login;
-    console.log(param)
-    res.redirect('/')
-    
+const login = (req, res) => {
+    User.findOne({email: req.body.login}, (require, user) => {
+        console.log(req.body.pass)
+        try{
+            if(user.email) {
+                const isValidPassword = user.comparePassword(req.body.pass);
+                console.log(isValidPassword)
+                if(isValidPassword) {
+                    req.session.user = {
+                        _id: user._id,
+                        email: user.email
+                    };
+                    res.redirect('/')
+                } else {
+                    res.redirect('/login.html')
+                }
+            } else {
+                res.redirect('/login.html')
+            }
+            
+        }catch(e) {
+            console.log("Coś poszło nie tak")
+            res.redirect('/login.html')
+        }        
+    })    
+}
+
+const logout = (req, res) => {
+    req.session.destroy();
+    res.redirect('/login.html')
 }
 
 
@@ -77,8 +108,9 @@ module.exports = {
     getOrders,
     homepage,
     addOrder,
-    checkLogin,
     createOrder,
     editOrder,
-    register
+    register,
+    login,
+    logout
 }

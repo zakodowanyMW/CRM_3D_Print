@@ -6,6 +6,8 @@ const {checkLogin} = require("./actions/actions");
 const {createOrder} = require("./actions/actions");
 const {editOrder} = require("./actions/actions");
 const {register} = require("./actions/actions");
+const {login} = require("./actions/actions");
+const {logout} = require("./actions/actions");
 
 
 const router = express.Router();
@@ -13,10 +15,11 @@ const router = express.Router();
 router.get("/", homepage)
 router.get("/showOrders", getOrders)
 router.post("/addOrder", addOrder)
-router.post("/checkLogin", checkLogin)
 router.get("/createOrder", createOrder)
 router.get("/editOrder", editOrder)
 router.post("/register", register)
+router.post("/login", login)
+router.get("/logout", logout)
 
 //pozostałe adresy niezdefiniowane
 router.get('*', (req, res) => {

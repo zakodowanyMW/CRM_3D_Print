@@ -1,12 +1,24 @@
 const express = require('express');
 const app = express();
 const path = require("path");
-const {port, databse} = require('./config');
+const {port, databse, sessionKeySecret} = require('./config');
 const router = require("./routes/routes");
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
 
+//session
+app.use(session({
+    secret: sessionKeySecret,
+    saveUninitialized: true,
+    cookie: {maxAge: 1000 * 60 * 60 * 24},
+    resave: false
+}))
+
+//parsers
 const bodyParser = require('body-parser');
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cookieParser())
 
 // view engine
 app.set('view engine', 'ejs');
