@@ -6,17 +6,7 @@
     </div>
     <div class="main">
         <div class="main_nav">
-            <div class="main_nav_addons">
-                nawigacja tutaj będzie
-            </div>
-            <div class="main_nav_login_wrapper">
-                <% if(user) { %>
-                    <p> Witaj <%= user %> </p>
-                    <p><a href="/logout"><i class='bx bxs-log-in'></i></a></p>
-                <% } else { %>
-                    <a href="/login.html">Zaloguj</a>
-                 <% } %>
-            </div>
+            <%- include('../partials/main_nav'); -%>
         </div>
         <div class="main-content">
             <%- body %>

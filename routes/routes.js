@@ -18,9 +18,9 @@ router.post("/register", UserActions.register)
 router.post("/login", UserActions.login)
 router.get("/logout", UserActions.logout)
 
-//pozostałe adresy niezdefiniowane
+// 404 site
 router.get('*', (req, res) => {
-    res.render('404');
+    res.render('pages/404');
 })
 
 module.exports = router;

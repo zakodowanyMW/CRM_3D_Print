@@ -1,12 +1,9 @@
 const Order = require('../../db/db')
 
-const variable ="test variable past to view";
-
 // home
 const homepage = (req, res) => {
     if(req.session.user){
         res.render("pages/home", {
-            variable,
             user: req.session.user.email
         })
     } else {
@@ -30,8 +27,12 @@ const getOrders = (req, res) => {
 }
 
 const createOrder = (req, res) => {
+    if(req.session.user) {
     res.render("forms/createOrder", {name:"",
     user: req.session.user.email})
+    } else {
+        res.redirect('/login.html')
+    }
 }
 
 const editOrder = (req, res) => {
