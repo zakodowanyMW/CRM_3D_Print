@@ -5,6 +5,7 @@ const {port, databse, sessionKeySecret} = require('./config');
 const router = require("./routes/routes");
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
+const bodyParser = require('body-parser');
 
 //session
 app.use(session({
@@ -15,7 +16,6 @@ app.use(session({
 }))
 
 //parsers
-const bodyParser = require('body-parser');
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser())

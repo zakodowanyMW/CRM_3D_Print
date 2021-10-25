@@ -1,5 +1,7 @@
+require('dotenv').config();
+
 module.exports = {
     port: process.env.PORT || 3000,
     database: process.env.DATABASE || 'mongodb://127.0.0.1:27017/CRM_3D_Print',
-    sessionKeySecret: "kfdpsfkmfosdmfpomdsfmdsmpfs"
+    sessionKeySecret: process.env.sessionKeySecret || "kfdpsfkmfosdmfpomdsfmdsmpfs"
 }

@@ -1,22 +1,6 @@
 const Order = require('../../db/db')
-const User = require('../../db/models/Users');
-const bcrypt = require('bcrypt');
 
 const variable ="test variable past to view";
-
-//register new User
-const register = (req, res) => {
-    const user = new User({
-        email: req.body.login,
-        password: req.body.pass
-    })
-    try{
-        user.save();
-        res.redirect('/login.html');
-    }catch(e) {
-        console.log("Nie udało się zalogować")
-    }
-}
 
 // home
 const homepage = (req, res) => {
@@ -69,39 +53,6 @@ const addOrder = (req, res) => {
     res.redirect("/");
 }
 
-const login = (req, res) => {
-    User.findOne({email: req.body.login}, (require, user) => {
-        console.log(req.body.pass)
-        try{
-            if(user.email) {
-                const isValidPassword = user.comparePassword(req.body.pass);
-                console.log(isValidPassword)
-                if(isValidPassword) {
-                    req.session.user = {
-                        _id: user._id,
-                        email: user.email
-                    };
-                    res.redirect('/')
-                } else {
-                    res.redirect('/login.html')
-                }
-            } else {
-                res.redirect('/login.html')
-            }
-            
-        }catch(e) {
-            console.log("Coś poszło nie tak")
-            res.redirect('/login.html')
-        }        
-    })    
-}
-
-const logout = (req, res) => {
-    req.session.destroy();
-    res.redirect('/login.html')
-}
-
-
 
 //export 
 module.exports = {
@@ -109,8 +60,5 @@ module.exports = {
     homepage,
     addOrder,
     createOrder,
-    editOrder,
-    register,
-    login,
-    logout
+    editOrder
 }
