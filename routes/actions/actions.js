@@ -5,7 +5,7 @@ const variable ="test variable past to view";
 // home
 const homepage = (req, res) => {
     if(req.session.user){
-        res.render("home", {
+        res.render("pages/home", {
             variable,
             user: req.session.user.email
         })
@@ -19,7 +19,10 @@ const homepage = (req, res) => {
 const getOrders = (req, res) => {
     try{
     Order.find({}, (err, result) => {
-        res.render("allOrders",{result}); 
+        res.render("pages/allOrders",{
+            result,
+            user: req.session.user.email
+        }); 
     })
     } catch(e) {
         res.status(500).send(e);;
@@ -27,13 +30,15 @@ const getOrders = (req, res) => {
 }
 
 const createOrder = (req, res) => {
-    res.render("forms/createOrder", {name:""})
+    res.render("forms/createOrder", {name:"",
+    user: req.session.user.email})
 }
 
 const editOrder = (req, res) => {
     res.render("forms/createOrder",{
         name: "tralalala",
-        fileNo: "ADDDEErerr d"
+        fileNo: "ADDDEErerr d",
+        user: req.session.user.email
     })
 }
 

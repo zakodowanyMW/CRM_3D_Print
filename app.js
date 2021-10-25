@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require("path");
 const {port, databse, sessionKeySecret} = require('./config');
+var ejsLayouts = require('express-ejs-layouts');
 const router = require("./routes/routes");
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
@@ -22,7 +23,9 @@ app.use(cookieParser())
 
 // view engine
 app.set('view engine', 'ejs');
+app.use(ejsLayouts);
 app.set('views',path.join(__dirname + '/views'))
+app.set('layout', './layouts/main')
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 
