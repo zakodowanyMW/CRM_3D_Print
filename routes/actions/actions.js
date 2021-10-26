@@ -13,10 +13,10 @@ const homepage = (req, res) => {
 
 
 //get all orders
-const getOrders = (req, res) => {
+const orders= (req, res) => {
     try{
     Order.find({}, (err, result) => {
-        res.render("pages/allOrders",{
+        res.render("pages/orders",{
             result,
             user: req.session.user.email
         }); 
@@ -62,7 +62,7 @@ const addOrder = (req, res) => {
 
 //export 
 module.exports = {
-    getOrders,
+    orders,
     homepage,
     addOrder,
     createOrder,

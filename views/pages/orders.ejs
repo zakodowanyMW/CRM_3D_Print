@@ -1,0 +1,45 @@
+<button class="primary">Dodaj zlecenie</button>
+<p>Lista detali do druku</p>
+<table>
+    <thead>
+        <tr>
+            <th>Lp.</th>
+            <th></th>
+            <th>Nazwa</th>
+            <th>Nr rys</th>
+            <th>Status</th>
+            <th>Maszyna</th>
+            <th>Materiał</th>
+            <th>Kolor</th>
+            <th>Data rozpoczęcia</th>
+            <th>Data zakończenia</th>
+            <th>Ilość</th>
+            <th>Czas [h]</th>
+            <th>Bryła</th>
+            <th>G-code</th>
+            <!-- <th>Uwagi</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        <% result.forEach(item => { %>
+            <tr class="order_list">
+                <td nowrap>1</td>
+                <td nowrap><input type="checkbox" name="" id=""></td>
+                <td nowrap><%= item.name %></td> 
+                <td nowrap><div class="drugi"><%= item.fileNo %></div></td> 
+                <td nowrap><p class="status">W realizacji</p></td> 
+                <td nowrap>Markforged</td> 
+                <td nowrap>Onyx + CF</td> 
+                <td nowrap>Black</td> 
+                <td nowrap>16:30 2021-10-26</td> 
+                <td nowrap>10:15 2021-10-27</td> 
+                <td nowrap>1 szt</td> 
+                <td nowrap>15:30</td> 
+                <td nowrap>Link</td> 
+                <td nowrap>Pobierz</td> 
+                <!-- <td nowrap>Tutaj znajdze się miejsce na uwagi</td>  -->
+            </tr>
+        <% }); %>
+    </tbody> 
+</table>
+

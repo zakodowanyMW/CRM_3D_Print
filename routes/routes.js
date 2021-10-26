@@ -1,5 +1,5 @@
 const express = require('express');
-const {getOrders} = require("./actions/actions")
+const {orders} = require("./actions/actions")
 const {homepage} = require("./actions/actions");
 const {addOrder} = require("./actions/actions");
 const {createOrder} = require("./actions/actions");
@@ -10,7 +10,7 @@ const UserActions = require("./actions/actionsUser");
 const router = express.Router();
 
 router.get("/", homepage)
-router.get("/showOrders", getOrders)
+router.get("/showOrders", orders)
 router.post("/addOrder", addOrder)
 router.get("/createOrder", createOrder)
 router.get("/editOrder", editOrder)
