@@ -5,6 +5,7 @@
         <tr>
             <th>Lp.</th>
             <th></th>
+            <th>Nr ZD</th>
             <th>Nazwa</th>
             <th>Nr rys</th>
             <th>Status</th>
@@ -17,7 +18,8 @@
             <th>Czas [h]</th>
             <th>Bryła</th>
             <th>G-code</th>
-            <!-- <th>Uwagi</th> -->
+            <th>Uwagi</th>
+            <th>Edytuj</th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +27,7 @@
             <tr class="order_list">
                 <td nowrap>1</td>
                 <td nowrap><input type="checkbox" name="" id=""></td>
+                <td nowrap>ZD/245-1</td>
                 <td nowrap><%= item.name %></td> 
                 <td nowrap><div class="drugi"><%= item.fileNo %></div></td> 
                 <td nowrap><p class="status">W realizacji</p></td> 
@@ -37,7 +40,8 @@
                 <td nowrap>15:30</td> 
                 <td nowrap>Link</td> 
                 <td nowrap>Pobierz</td> 
-                <!-- <td nowrap>Tutaj znajdze się miejsce na uwagi</td>  -->
+                <td>Tutaj znajdze się miejsce na uwagi</td> 
+                <td nowrap>Edytuj</td> 
             </tr>
         <% }); %>
     </tbody> 
