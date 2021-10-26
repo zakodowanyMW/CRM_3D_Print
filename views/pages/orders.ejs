@@ -1,31 +1,57 @@
-<button class="primary">Dodaj zlecenie</button>
-<p>Lista detali do druku</p>
+<div class="table_filtr">
+    <div class="add_btn">
+        <button class="primary">Dodaj zlecenie</button>
+        <p class="order_list_title">Lista zamówień ZD</p>
+    </div>
+    <div class="filters_orders">
+        <div class="filter_group_1">
+            <div class="search_name">
+                <input type="search" name="" id="" placeholder="szukaj po nazwie">
+                <input type="search" name="" id="" placeholder="szukaj po nr rys">
+                <div class="select_machine_wrapper">
+                    <select name="" id="" class="choose_machine">
+                        <option value="Markforged">Markforged</option>
+                        <option value="Ubot S320">Ubot S320</option>
+                        <option value="Ubot Tower S+">Ubot Tower S+</option>
+                        <option value="Urbicum">Urbicum</option>
+                    </select>
+                </div>
+                <div class="select_machine_status">
+                    <select name="" id="" class="choose_machine">
+                        <option value="Markforgedd">Wydane z WZ</option>
+                        <option value="Markforged">Zrealizowane</option>
+                        <option value="Ubot S320">W realizacji</option>
+                        <option value="Ubot Tower S+">Przygotowane</option>
+                        <option value="Urbicum">Nowe zamówienie</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <table>
     <thead>
         <tr>
-            <th>Lp.</th>
-            <th></th>
-            <th>Nr ZD</th>
-            <th>Nazwa</th>
-            <th>Nr rys</th>
-            <th>Status</th>
-            <th>Maszyna</th>
-            <th>Materiał</th>
-            <th>Kolor</th>
-            <th>Data rozpoczęcia</th>
-            <th>Data zakończenia</th>
-            <th>Ilość</th>
-            <th>Czas [h]</th>
-            <th>Bryła</th>
-            <th>G-code</th>
-            <th>Uwagi</th>
-            <th>Edytuj</th>
+            <th nowrap></th>
+            <th nowrap>Nr ZD</th>
+            <th nowrap>Nazwa</th>
+            <th nowrap>Nr rys</th>
+            <th nowrap>Status</th>
+            <th nowrap>Maszyna</th>
+            <th nowrap>Materiał</th>
+            <th nowrap>Kolor</th>
+            <th nowrap>Data rozpoczęcia</th>
+            <th nowrap>Data zakończenia</th>
+            <th nowrap>Ilość</th>
+            <th nowrap>Czas [h]</th>
+            <th nowrap>Bryła</th>
+            <th nowrap>G-code</th>
+            <th nowrap>Edytuj</th>
         </tr>
     </thead>
     <tbody>
         <% result.forEach(item => { %>
             <tr class="order_list">
-                <td nowrap>1</td>
                 <td nowrap><input type="checkbox" name="" id=""></td>
                 <td nowrap>ZD/245-1</td>
                 <td nowrap><%= item.name %></td> 
@@ -40,10 +66,10 @@
                 <td nowrap>15:30</td> 
                 <td nowrap>Link</td> 
                 <td nowrap>Pobierz</td> 
-                <td>Tutaj znajdze się miejsce na uwagi</td> 
-                <td nowrap>Edytuj</td> 
+                <td nowrap class="edit">Edytuj</td> 
             </tr>
         <% }); %>
     </tbody> 
 </table>
+
 

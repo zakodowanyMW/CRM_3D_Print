@@ -4,7 +4,7 @@
     --second-color: #ff2352;
     --accent-color: #d4213d;
     --first-hover-color: #ffc933;
-    --text-color-gray: #7a7a7a;
+    --text-color-gray: #696969;
 }
 
 /* ----- end variables ----- */
@@ -45,7 +45,7 @@ table {
 }
 
 tbody td {
-    padding: 12px 7px;
+    padding: 13px 7px;
     border-bottom: 0.5px solid #e0e0e0;
     /* border-right: 0.5px solid #e0e0e0; */
 }
@@ -60,9 +60,9 @@ tbody tr:hover {
 }
 
 thead th {
-    padding: 12px 7px;
-    border-bottom: 1px solid #333131;
-    background: #5f6270;
+    padding: 15px 7px;
+    /* background: #5f6270; */
+    background: var(--accent-color);
     color: white;
     text-align: left;
 }
@@ -87,6 +87,93 @@ td p.status {
     border-radius: 5px;
     background-color: var(--first-hover-color);
     display: inline;
+}
+
+thead tr:first-child th {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 174px;
+}
+
+.table_filtr {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 85px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+}
+
+.filters_orders {
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    height: 80px;
+    margin-right: -4px;
+    border-bottom: 1px solid #dadada;
+}
+
+.order_list_title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 17px 0 10px 0;
+}
+
+.filter_group_1 input {
+    padding: 12px 15px;
+    /* display: flex; */
+    flex-direction: column;
+    border: none;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    width: 225px;
+    margin-right: 5px;
+}
+
+.choose_machine {
+    padding: 12px 15px;
+    border: none;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    width: 200px;
+    margin-right: 15px;
+    outline: none;
+}
+
+.select_machine_wrapper {
+    border: none;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    width: 215px;
+    margin-right: 5px;
+}
+
+.select_machine_status {
+    border: none;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    width: 215px;
+}
+
+.search_name {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon_settings {
+    width: 45px;
+    height: 45px;
+    background-color: #5f6270;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.edit {
+    /* color: var(--second-color); */
+    font-weight: bold;
 }
 
 /* ----- end bases styles ----- */
@@ -140,12 +227,14 @@ td p.status {
     top: 0;
     left: 0;
     display: flex;
+    justify-content: space-between;
     width: 100%;
-    background-color: #ffffff;
+    background-color: white;
     color: rgb(0, 0, 0);
     height: 72px;
     border-bottom: 1px solid #acacac;
     align-items: center;
+    padding-right: 33px;
 }
 
 .main_nav_login_wrapper {
@@ -236,6 +325,19 @@ td p.status {
 /* ------ start main nav addons------ */
 .main_nav_addons {
     padding: 0 15px;
+    display: flex;
+}
+
+.main_nav_addons .title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 6px;
+}
+
+.main_nav_addons .subtitle {
+    margin-left: 10px;
+    color: var(--text-color-gray);
 }
 
 .main_nav_addons .bxs-file-blank {
@@ -260,6 +362,7 @@ td p.status {
 @media screen and (min-width:960px) {
     .sidebar {
         margin-top: 0;
+        position: fixed;
     }
 
     .main_wrapper {
@@ -267,7 +370,14 @@ td p.status {
     }
 
     .main_nav {
-        position: relative;
+        position: fixed;
+        margin-left: 290px;
+        width: calc(100% - 290px);
+    }
+
+    .main_content {
+        margin-left: 290px;
+        margin-top: 70px;
     }
 }
 
@@ -275,10 +385,16 @@ td p.status {
 
 /* ----- start desktop  styles ------ */
 @media screen and (min-width:1200px) {
-    .main-content {
+    .main_content {
         padding: 15px 35px;
     }
+
+    thead th {
+        position: sticky;
+        top: 0;
+    }
 }
+
 
 /* ----- end desktop styles ------ */
 
