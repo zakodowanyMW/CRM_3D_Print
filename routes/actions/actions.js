@@ -26,14 +26,14 @@ const orders= (req, res) => {
     }       
 }
 
-const createOrder = (req, res) => {
-    if(req.session.user) {
-    res.render("forms/createOrder", {name:"",
-    user: req.session.user.email})
-    } else {
-        res.redirect('/login.html')
-    }
-}
+// const createOrder = (req, res) => {
+//     if(req.session.user) {
+//     res.render("forms/createOrder", {name:"",
+//     user: req.session.user.email})
+//     } else {
+//         res.redirect('/login.html')
+//     }
+// }
 
 const editOrder = (req, res) => {
     res.render("forms/createOrder",{
@@ -65,6 +65,6 @@ module.exports = {
     orders,
     homepage,
     addOrder,
-    createOrder,
+    // createOrder,
     editOrder
 }

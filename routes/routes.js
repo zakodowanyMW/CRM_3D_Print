@@ -12,7 +12,7 @@ const router = express.Router();
 router.get("/", homepage)
 router.get("/showOrders", orders)
 router.post("/addOrder", addOrder)
-router.get("/createOrder", createOrder)
+// router.get("/createOrder", createOrder)
 router.get("/editOrder", editOrder)
 router.post("/register", UserActions.register)
 router.post("/login", UserActions.login)
