@@ -1,3 +1,6 @@
+
+<link rel="stylesheet" href="/css/sidebar.css">
+
 <!----------- LEFT SIDEBAR -------------->
 
     <div class="logo_wrapper">
@@ -8,42 +11,46 @@
             <i class='bx bx-menu'></i>
         </div>
     </div>
-    <div class="sidebar_nav">
-        <ul>
-            <li class="active">
-                <a href="/"><i class='bx bxs-dashboard'></i><span>Strona główna</span></a>
-            </li>
-            <li>
-                <a href="/showOrders"><i class='bx bxs-shopping-bags'></i><span>Zamówienia</span></a>
-            </li>
-            <li>
-                <a href="/"><i class='bx bxs-store' ></i><span>Magazyn</span></a>
-            </li>
-            <li>
-                <a href="/"><i class='bx bxs-notepad' ></i><span>Produkcja</span></a>
-            </li>
-            <li>
-                <a href="/"><i class='bx bxs-copy-alt' ></i><span>Baza wdrożeń</span></a>
-            </li>
-            <li>
-                <a href="/"><i class='bx bxs-analyse' ></i><span>Baza wiedzy</span></a>
-            </li>
-        </ul>
-    </div>
-    <div class="main_nav_login_wrapper">
-        <div class="user-icon">
-            <img src="/assets/img/businessman.png" alt="" srcset="">
+    <div class="sidebar_content_wrapper active">
+        <div class="sidebar_nav">
+            <ul>
+                <li class="active">
+                    <a href="/"><i class='bx bxs-dashboard'></i><span>Strona główna</span></a>
+                </li>
+                <li>
+                    <a href="/showOrders"><i class='bx bxs-shopping-bags'></i><span>Zamówienia</span></a>
+                </li>
+                <li>
+                    <a href="/"><i class='bx bxs-store' ></i><span>Magazyn</span></a>
+                </li>
+                <li>
+                    <a href="/"><i class='bx bxs-notepad' ></i><span>Produkcja</span></a>
+                </li>
+                <li>
+                    <a href="/"><i class='bx bxs-copy-alt' ></i><span>Baza wdrożeń</span></a>
+                </li>
+                <li>
+                    <a href="/"><i class='bx bxs-analyse' ></i><span>Baza wiedzy</span></a>
+                </li>
+            </ul>
         </div>
-        <div class="user-logout">
-            <% if(user && typeof(user) !== "undefined") { %>
-                <div>
-                    <p> Witaj </p> 
-                    <p class="user"><strong><%= user %></strong></p>
-                </div>
-                <p><a href="/logout"><i class='bx bxs-log-in'></i></a></p>
-            <% } else { %>
-                <a href="/login.html">Zaloguj</a>
-            <% } %>
+        <div class="main_nav_login_wrapper">
+            <div class="user-icon">
+                <img src="/assets/img/businessman.png" alt="" srcset="">
+            </div>
+            <div class="user-logout">
+                <% if(locals.user && typeof(locals.user) !== "undefined") { %>
+                    <div>
+                        <p> Witaj </p> 
+                        <p class="user"><strong><%= user %></strong></p>
+                    </div>
+                    <p><a href="/logout"><i class='bx bxs-log-in'></i></a></p>
+                <% } else { %>
+                    <a href="/login.html">Zaloguj</a>
+                <% } %>
+            </div>
         </div>
     </div>
 <!----------- LEFT SIDEBAR END ----------->
+
+<script src="/js/sidebar.js"></script>

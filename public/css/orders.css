@@ -1,0 +1,389 @@
+.add_new_order_from_orderes {
+    width: 450px;
+    height: 545px;
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s;
+    box-shadow: 1px 10px 30px 1px rgba(0, 0, 0, 0.342);
+    display: none;
+    z-index: 3;
+}
+
+.add_new_order_from_orderes .close {
+    position: absolute;
+    right: 0;
+    background-color: var(--main-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+}
+
+.form_add_order {
+    padding: 5px 45px;
+}
+
+.form_add_order .one {
+    display: flex;
+    flex-direction: column;
+}
+
+.add_new_order_from_orderes input {
+    padding: 7px 25px;
+    margin: 5px 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    border: 1px solid #a3a3a3;
+    border-radius: 3px;
+    outline: none;
+    background-color: #fff;
+}
+
+.add_new_order_from_orderes h2 {
+    padding: 30px 20px 10px 45px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.save_new_order {
+    margin-top: 5px;
+}
+
+
+
+/* ----- end bases styles ----- */
+
+
+/* ----- START MOBILE STYLES------ */
+.table_filtr {
+    position: relative;
+    /* position: -webkit-sticky;*/
+    top: 15px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+}
+
+.filters_orders {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    /* height: 80px; */
+    margin-right: -4px;
+    border-bottom: 1px solid #dadada;
+}
+
+.search_name {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.order_list_title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 17px 0 10px 0;
+}
+
+.filter_group_1 input {
+    padding: 14px 15px;
+    border: none;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    width: 100%;
+    margin-right: 5px;
+    margin-bottom: 7px;
+}
+
+.select_machine_status {
+    border: none;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 7px;
+}
+
+.select_machine_wrapper {
+    border: none;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    width: 100%;
+    margin-right: 5px;
+    margin-bottom: 7px;
+}
+
+.choose_machine {
+    padding: 12px 15px;
+    border: none;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    width: 92%;
+    margin-right: 15px;
+    outline: none;
+}
+
+.edit {
+    /* color: var(--second-color); */
+    font-weight: bold;
+}
+
+/* -------- start styling table mobile --------*/
+table,
+thead,
+tbody,
+th,
+td,
+tr {
+    display: block;
+}
+
+table {
+    width: 100%;
+    position: relative;
+}
+
+thead th {
+    padding: 15px 7px;
+    /* background: #5f6270; */
+    background: var(--accent-color);
+    color: white;
+    text-align: left;
+    display: none;
+}
+
+thead tr:first-child th {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 174px;
+}
+
+tbody td {
+    padding: 13px 7px;
+    border-bottom: 0.5px solid #e0e0e0;
+    position: relative;
+    padding-left: 50%;
+}
+
+td:before {
+    position: absolute;
+    top: 14px;
+    left: 20px;
+    width: 30%;
+    padding-right: 10px;
+    white-space: nowrap;
+    border-right: 1px solid grey;
+    font-weight: bold;
+}
+
+td:nth-of-type(1):before {
+    content: "";
+}
+
+td:nth-of-type(2):before {
+    content: "Numer ZD";
+}
+
+td:nth-of-type(3):before {
+    content: "Nazwa";
+}
+
+td:nth-of-type(4):before {
+    content: "Numer rys";
+}
+
+td:nth-of-type(5):before {
+    content: "Status";
+}
+
+td:nth-of-type(6):before {
+    content: "Maszyna";
+}
+
+td:nth-of-type(7):before {
+    content: "Materiał";
+}
+
+td:nth-of-type(8):before {
+    content: "Kolor";
+}
+
+td:nth-of-type(9):before {
+    content: "Data startu";
+}
+
+td:nth-of-type(10):before {
+    content: "Data końca";
+}
+
+td:nth-of-type(11):before {
+    content: "Ilość";
+}
+
+td:nth-of-type(12):before {
+    content: "Czas";
+}
+
+td:nth-of-type(13):before {
+    content: "Bryła";
+}
+
+td:nth-of-type(14):before {
+    content: "Link";
+}
+
+tbody tr:nth-child(even) {
+    background: #dbdbdb;
+}
+
+tbody tr:hover {
+    background-color: #e9e9e9;
+    cursor: pointer;
+}
+
+td p.status {
+    padding: 6px 8px;
+    border-radius: 5px;
+    background-color: var(--first-hover-color);
+    display: inline;
+}
+
+/* -------- end styling table mobile --------*/
+
+/* ----- END MOBILE STYLES------ */
+
+
+/* ----- start tablets styles ------ */
+@media screen and (min-width:620px) {}
+
+/* ----- end tablets styles ------ */
+
+/* ----- start large tablets & laptops styles ------ */
+@media screen and (min-width:960px) {
+    .table_filtr {
+        position: sticky;
+        position: -webkit-sticky;
+        top: 85px;
+        background-color: rgb(255, 255, 255);
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0;
+        z-index: 2;
+    }
+
+    .search_name {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+    }
+
+    .filters_orders {
+        width: 80%;
+        height: 80px;
+    }
+
+    .filter_group_1 input {
+        padding: 12px 15px;
+        width: 225px;
+        margin-bottom: 0px;
+    }
+
+    .select_machine_status {
+        width: 215px;
+        margin-bottom: 0px;
+    }
+
+    .choose_machine {
+        padding: 12px 15px;
+        width: 200px;
+        margin-right: 15px;
+    }
+
+    .select_machine_wrapper {
+        width: 215px;
+        margin-bottom: 0px;
+    }
+
+    /* -------- start styling table ---------*/
+    table {
+        display: table;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    thead tr {
+        display: table-row;
+    }
+
+    thead th {
+        padding: 15px 7px;
+        /* background: #5f6270; */
+        background: var(--accent-color);
+        color: white;
+        text-align: left;
+        display: table-cell;
+    }
+
+    thead tr:first-child th {
+        position: sticky;
+        position: -webkit-sticky;
+        top: 174px;
+    }
+
+    tbody {
+        display: table-row-group;
+    }
+
+    tbody tr {
+        display: table-row;
+    }
+
+    tbody td {
+        padding: 13px 7px;
+        display: table-cell;
+        /* border-right: 0.5px solid #e0e0e0; */
+    }
+
+    tbody tr:nth-child(even) {
+        background: #fafafa;
+    }
+
+    td p.status {
+        padding: 6px 8px;
+        border-radius: 5px;
+        background-color: var(--first-hover-color);
+        display: inline;
+    }
+
+    td:before {
+        display: none;
+    }
+
+
+
+    /* -------- end styling table ---------*/
+
+}
+
+
+/* ----- end large tablets & laptops styles  ------ */
+
+/* ----- start desktop  styles ------ */
+@media screen and (min-width:1200px) {
+
+    thead th {
+        position: sticky;
+        top: 0;
+    }
+}
+
+
+/* ----- end desktop styles ------ */

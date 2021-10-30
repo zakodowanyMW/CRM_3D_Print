@@ -1,0 +1,191 @@
+/* ---- start logo & btn toogle ------ */
+.sidebar {
+    min-width: 290px;
+    flex-basis: 90px;
+    height: 100vh;
+    background-color: var(--main-color);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 72px;
+    position: relative;
+    z-index: 999;
+}
+
+.logo_wrapper {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: rgb(15, 15, 15);
+}
+
+.logo {
+    font-size: 1.2rem;
+    margin-left: 7px;
+}
+
+.btn-toogle {
+    margin-left: auto;
+    margin-right: 3px;
+    font-size: 1.9rem;
+}
+
+/* ----- end logo & btn toogle ------ */
+.sidebar_content_wrapper {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+    min-height: calc(100% - 72px);
+    background-color: var(--main-color);
+}
+
+.sidebar_content_wrapper.active_btn_toogle {
+    display: flex;
+    z-index: 1000;
+}
+
+/* ----- start main_nav ------ */
+.main_nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: white;
+    color: rgb(0, 0, 0);
+    height: 72px;
+    border-bottom: 1px solid #acacac;
+    align-items: center;
+    padding-right: 33px;
+}
+
+.main_nav_login_wrapper {
+    display: flex;
+    min-width: 100%;
+    justify-content: left;
+    background-color: #343438;
+    padding: 1rem 1.5rem 1rem 2.2rem;
+    font-size: .9rem;
+    position: relative;
+    bottom: 0px;
+}
+
+.main_nav_login_wrapper .user-icon img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.main_nav_login_wrapper .user-logout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    flex-basis: 100%;
+}
+
+.main_nav_login_wrapper .user-logout p.user {
+    margin-top: .4rem;
+}
+
+.main_nav_login_wrapper .user-logout p i {
+    color: rgb(255, 255, 255);
+    font-size: 2.8rem;
+}
+
+.bx.bxs-log-in {
+    font-size: 2.5rem;
+    color: rgb(15, 15, 15);
+}
+
+.bx.bxs-log-in:hover {
+    font-size: 2.5rem;
+}
+
+.sidebar_nav {
+    padding: 30px 0 20px 20px;
+    min-height: 380px;
+}
+
+.sidebar_nav ul li {
+    width: 100%;
+    border-bottom: 1px solid #313133;
+    padding-left: 25px;
+}
+
+.sidebar_nav ul li:hover {
+    color: var(--second-color);
+}
+
+.sidebar_nav ul li.active {
+    background-color: #fff;
+    color: var(--main-color);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: var(--main-color);
+    transition: .2s;
+}
+
+.sidebar_nav ul li a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: .8rem 1.3rem .8rem 0;
+    margin-bottom: 0.2rem;
+}
+
+
+.sidebar_nav ul li a i {
+    padding-right: 1.6rem;
+    font-size: 1.3rem;
+}
+
+
+
+/* ----- END MOBILE STYLES------ */
+
+
+/* ----- start tablets styles ------ */
+@media screen and (min-width:620px) {}
+
+/* ----- end tablets styles ------ */
+
+/* ----- start large tablets & laptops styles ------ */
+@media screen and (min-width:960px) {
+    .sidebar {
+        margin-top: 0;
+        position: fixed;
+    }
+
+    .sidebar_content_wrapper {
+        display: flex;
+    }
+
+    .btn-toogle {
+        margin-left: auto;
+        margin-right: 0px;
+    }
+
+    .main_nav_login_wrapper {
+        padding: 1rem 2.5rem;
+    }
+
+    .logo {
+        margin-left: 0px;
+    }
+
+}
+
+/* ----- end large tablets & laptops styles  ------ */
+
+/* ----- start desktop  styles ------ */
+@media screen and (min-width:1200px) {}
+
+
+/* ----- end desktop styles ------ */
+
+
+/* the end */

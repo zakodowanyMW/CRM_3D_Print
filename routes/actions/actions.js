@@ -26,15 +26,6 @@ const orders= (req, res) => {
     }       
 }
 
-// const createOrder = (req, res) => {
-//     if(req.session.user) {
-//     res.render("forms/createOrder", {name:"",
-//     user: req.session.user.email})
-//     } else {
-//         res.redirect('/login.html')
-//     }
-// }
-
 const editOrder = (req, res) => {
     res.render("forms/createOrder",{
         name: "tralalala",
@@ -54,9 +45,10 @@ const addOrder = (req, res) => {
         })
         order.save();
     } catch(e) {
-        console.log("Somethings was wrong!")
+        console.log("Somethings was wrong!");
+        res.redirect("/");
     }
-    res.redirect("/");
+    res.redirect("/showOrders");
 }
 
 
@@ -65,6 +57,5 @@ module.exports = {
     orders,
     homepage,
     addOrder,
-    // createOrder,
     editOrder
 }
