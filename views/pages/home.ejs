@@ -1,12 +1,65 @@
 
+<link rel="stylesheet" href="/css/home.css">
 
-
-    <p>Tekst z głównego contextu</p>
-
-    <a href="/createOrder"><button>Dodaj nowe zamówienie</button></a> </br>
-    <a href="/showOrders"><button>Pokaż listę zamówień</button></a> </br>
-    <a href="/editOrder"><button>Edytuj listę zamówień</button></a> </br>
+    <section class="header">
+        <div class="welcome">
+            <img src="/assets/img/profile.png" alt="" class="img_profile">
+            <div class="info_welcome">
+                <h2 class="greeting">Witaj ponownie <%= user[0].toUpperCase() + user.slice(1) %></h2>
+                <div><i class='bx bxs-bell'></i><span>Obecnie masz dwa zadania i 5 wiadomości</span></div>
+            </div>
+            
+        </div>
+        <div class="task_message">
+            <button class="message second"><i class='bx bxs-message-dots' ></i>Wiadomości</button>
+            <button class="tasks primary"><i class='bx bx-task' ></i>Nowe zadania</button>
+        </div>
+    </section>
     
 
-
+    <main class="main">
+        <section class="chooseOptions">
+            <div class="optionsGroup">
+                <h1>Szybki dostęp</h1>
+            </div>
+            <div class="optionsGroup">
+                <h3 class="chooseColumnsToShow">Wybierz kolumny</h3>
+                <div class="checkBoxOptions">
+                    <label for="purcheser">
+                        <input type="checkbox" name="" id="purcheser">
+                        Zamawiający
+                    </label>
+                    <label for="orderID">
+                        <input type="checkbox" name="" id="orderID">
+                        Numer zamówienia
+                    </label>
+                    <label for="itemName">
+                        <input type="checkbox" name="" id="itemName">
+                        Nazwa detalu
+                    </label>
+                    <label for="material">
+                        <input type="checkbox" name="" id="material">
+                        Materiał
+                    </label>
+                    <label for="work_time">
+                        <input type="checkbox" name="" id="work_time">
+                        Czas druku
+                    </label>
+                </div>
+                <span class="icon_options_area las la-list-alt"></span>
+            </div>
+            <div class="optionsGroup">
+                <h1>Liczba zamówień</h1>
+                <div class="wrapp">
+                    <h3 class="counter">356</h3>
+                    <span class="counter_icon las la-file-invoice-dollar"></span>
+                </div>
+                <p class="orders_worth">Wartość zamówień <span>231 564zł</span></p>
+            </div>
+            <div class="optionsGroup">
+                <h1>Dodaj nowe zamówienia</h1>
+                <span href="" class="quickNewOrderIcon"><span class="las la-plus-circle"></span></span>
+            </div>
+        </section>
+        </main>
 

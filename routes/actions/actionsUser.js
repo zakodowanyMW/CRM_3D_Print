@@ -21,8 +21,7 @@ class UserActions {
 
     //login
     login = (req, res) => {
-        User.findOne({email: req.body.login}, (require, user) => {
-            console.log(req.body.pass)
+        User.findOne({email: req.body.login}, (err, user) => {
             try{
                 if(user.email) {
                     const isValidPassword = user.comparePassword(req.body.pass);
@@ -41,7 +40,6 @@ class UserActions {
                 }
                 
             }catch(e) {
-                console.log("Coś poszło nie tak")
                 res.redirect('/login.html')
             }        
         })    

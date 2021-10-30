@@ -1,0 +1,177 @@
+/* --- Choose options ---- */
+.hiden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+/* ------ start header ------- */
+section.header {
+    width: 100%;
+    height: 150px;
+    border-bottom: 0.5px solid #d4d4d4;
+    /* background-color: #f30035; */
+    padding: 0 35px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+section.header .welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section.header .welcome .bx.bxs-bell {
+    font-size: .9rem;
+    padding-right: 6px;
+    color: var(--text-color-gray);
+}
+
+section.header .welcome h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.img_profile {
+    width: 70px;
+    height: 70px;
+}
+
+section.header .task_message {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    align-content: center;
+}
+
+section.header .task_message .bx {
+    padding-right: 7px;
+    font-size: .9rem;
+}
+
+/* ------ end header ------- */
+
+.chooseOptions {
+    display: flex;
+    width: 100%;
+    min-width: 240px;
+}
+
+.chooseOptions .optionsGroup {
+    flex-basis: 25%;
+    background-color: #fff;
+    border: rgba(0, 0, 0, 0.15) 1px solid;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 1.6rem 1rem 1rem 1.5rem;
+    position: relative;
+}
+
+.chooseOptions .optionsGroup:last-child {
+    background: linear-gradient(63deg, rgba(247, 31, 78, 1) 0%, rgba(204, 19, 113, 1) 100%);
+    color: #fff;
+}
+
+.chooseColumnsToShow {
+    padding-bottom: .7rem;
+}
+
+.la-list-alt {
+    position: absolute;
+    font-size: 4rem;
+    margin-left: auto;
+    right: 30px;
+    bottom: 15px;
+}
+
+.optionsGroup .checkBoxOptions label {
+    font-size: .9rem;
+    color: #f30035;
+    display: block;
+    font-weight: 500;
+}
+
+.optionsGroup .checkBoxOptions input {
+    margin: .2rem;
+}
+
+.quickNewOrderIcon {
+    display: block;
+    color: #fff;
+    font-size: 5rem;
+    right: 10px;
+    /* background-color: rgb(70, 38, 38); */
+    text-align: right;
+    padding-right: 25px;
+    padding-top: 1.4rem;
+}
+
+.la-plus-circle:hover {
+    color: rgb(255, 224, 47);
+    cursor: pointer;
+}
+
+.optionsGroup .wrapp {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 3.5rem;
+    padding: 1rem .3rem 1rem 0;
+}
+
+.optionsGroup .counter {
+    font-weight: 700;
+    color: var(--second-color);
+}
+
+.optionsGroup .orders_worth {
+    font-size: 0.9rem;
+    padding-bottom: .5rem;
+    color: var(--main-color);
+}
+
+/* --- Choose options end---- */
+
+
+
+/* ----- END MOBILE STYLES------ */
+
+
+/* ----- start tablets styles ------ */
+@media screen and (min-width:620px) {}
+
+/* ----- end tablets styles ------ */
+
+/* ----- start large tablets & laptops styles ------ */
+@media screen and (min-width:960px) {
+    section.header .welcome {
+        flex-direction: row;
+    }
+
+    section.header .welcome .info_welcome {
+        display: flex;
+        flex-direction: column;
+        padding-left: 30px;
+        gap: 7px;
+    }
+
+    section.header .task_message {
+        gap: 15px;
+        margin-right: 50px;
+    }
+}
+
+/* ----- end large tablets & laptops styles  ------ */
+
+/* ----- start desktop  styles ------ */
+@media screen and (min-width:1200px) {}
+
+
+/* ----- end desktop styles ------ */
+
+
+/* the end */

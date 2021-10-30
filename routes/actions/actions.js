@@ -35,13 +35,16 @@ const editOrder = (req, res) => {
 }
 
 const addOrder = (req, res) => {
-    const {name} = req.body;
-    const {fileNo} = req.body;
+    const {name, fileNo, material, count, color, project, model } = req.body;
     try{
         const order = new Order({
-            id: 4,
             name,
             fileNo,
+            material, 
+            count, 
+            color, 
+            project, 
+            model 
         })
         order.save();
     } catch(e) {

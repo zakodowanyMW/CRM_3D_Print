@@ -14,7 +14,7 @@
     <div class="sidebar_content_wrapper active">
         <div class="sidebar_nav">
             <ul>
-                <li class="active">
+                <li class="active_menu">
                     <a href="/"><i class='bx bxs-dashboard'></i><span>Strona główna</span></a>
                 </li>
                 <li>
@@ -42,7 +42,7 @@
                 <% if(locals.user && typeof(locals.user) !== "undefined") { %>
                     <div>
                         <p> Witaj </p> 
-                        <p class="user"><strong><%= user %></strong></p>
+                        <p class="user"><strong><%= user[0].toUpperCase() + user.slice(1) %></strong></p>
                     </div>
                     <p><a href="/logout"><i class='bx bxs-log-in'></i></a></p>
                 <% } else { %>

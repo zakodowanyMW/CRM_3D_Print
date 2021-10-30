@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require("path");
-const {port, databse, sessionKeySecret} = require('./config');
+const {port, sessionKeySecret} = require('./config');
 var ejsLayouts = require('express-ejs-layouts');
 const router = require("./routes/routes");
 const cookieParser = require('cookie-parser')

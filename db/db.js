@@ -4,17 +4,35 @@ const Schema = mongoose.Schema;
 mongoose.connect('mongodb://localhost:27017/print3d');
 
 const orderSchema = new Schema( {
-    id: {
+    name: {
+        type: String,
+        default: "Brak nazwy detalu",
+        required: true,
+    },
+    fileNo: {
+        type: String,
+        required: true,
+    },
+    material: {
+        type: String,
+        required: true,
+    },
+    count: {
         type: Number,
         required: true,
         min: 1
     },
-    name: {
+    color: {
         type: String,
-        default: "Brak nazwy detalu"
+        required: true,
     },
-    fileNo: {
-        type: String
+    project: {
+        type: String,
+        required: true,
+    },
+    model: {
+        type: String,
+        required: true,
     }
 })
 

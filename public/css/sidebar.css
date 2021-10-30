@@ -119,7 +119,7 @@
     color: var(--second-color);
 }
 
-.sidebar_nav ul li.active {
+.sidebar_nav ul li.active_menu {
     background-color: #fff;
     color: var(--main-color);
     border-top-left-radius: 20px;
