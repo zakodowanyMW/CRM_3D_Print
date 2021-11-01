@@ -58,6 +58,7 @@ button.primary {
     border-radius: 5px;
     outline: none;
     margin-bottom: 5px;
+    letter-spacing: 0.6px;
 }
 
 button.primary:hover {
@@ -73,6 +74,7 @@ button.second {
     border-radius: 5px;
     outline: none;
     margin-bottom: 5px;
+    letter-spacing: 0.6px;
 }
 
 button:disabled,

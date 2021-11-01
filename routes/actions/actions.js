@@ -1,7 +1,7 @@
 const Order = require('../../db/db')
 
 // home
-const homepage = (req, res) => {
+const homepage = async (req, res) => {
     if(req.session.user){
         res.render("pages/home", {
             user: req.session.user.email
@@ -12,8 +12,8 @@ const homepage = (req, res) => {
 }
 
 
-//get all orders
-const orders= (req, res) => {
+//get all orders and page Orders
+const getAllOrders = async (req, res) => {
     try{
     Order.find({}, (err, result) => {
         res.render("pages/orders",{
@@ -26,26 +26,20 @@ const orders= (req, res) => {
     }       
 }
 
-const editOrder = (req, res) => {
-    res.render("forms/createOrder",{
-        name: "tralalala",
-        fileNo: "ADDDEErerr d",
-        user: req.session.user.email
+//get one note
+const oneOrder = async (req, res) => {
+    const id = req.params.id;
+    Order.findOne({name: req.params.id}, (err, response) => {
+        res.json(response);
     })
 }
 
-const addOrder = (req, res) => {
+
+// add new order
+const addOrder = async (req, res) => {
     const {name, fileNo, material, count, color, project, model } = req.body;
     try{
-        const order = new Order({
-            name,
-            fileNo,
-            material, 
-            count, 
-            color, 
-            project, 
-            model 
-        })
+        const order = new Order({ name,fileNo,material, count, color, project, model })
         order.save();
     } catch(e) {
         console.log("Somethings was wrong!");
@@ -55,10 +49,27 @@ const addOrder = (req, res) => {
 }
 
 
+// edit one order
+const updateOrder = async (req, res) => {
+    res.render("forms/createOrder",{
+        name: "tralalala",
+        fileNo: "ADDDEErerr d",
+        user: req.session.user.email
+    })
+}
+
+
+// delete one order
+const deletOrder = async (req, res) => {
+    res.send("Tu będzie usuwanie")
+}
+
 //export 
 module.exports = {
-    orders,
+    getAllOrders,
     homepage,
     addOrder,
-    editOrder
+    oneOrder,
+    updateOrder,
+    deletOrder
 }

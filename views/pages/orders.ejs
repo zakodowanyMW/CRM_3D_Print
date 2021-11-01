@@ -40,14 +40,12 @@
             <th nowrap>Nazwa</th>
             <th nowrap>Nr rys</th>
             <th nowrap>Status</th>
-            <th nowrap>Maszyna</th>
+            <th nowrap>Projekt</th>
             <th nowrap>Materiał</th>
             <th nowrap>Kolor</th>
-            <th nowrap>Data rozpoczęcia</th>
+            <th nowrap>Zrealizowano</th>
             <th nowrap>Ilość</th>
-            <th nowrap>Czas [h]</th>
             <th nowrap>Bryła</th>
-            <th nowrap>G-code</th>
             <th nowrap>Edytuj</th>
         </tr>
     </thead>
@@ -59,15 +57,13 @@
                 <td nowrap><%= item.name %></td> 
                 <td nowrap><div class="drugi"><%= item.fileNo %></div></td> 
                 <td nowrap><p class="status">W realizacji</p></td> 
-                <td nowrap>Markforged</td> 
+                <td nowrap><%= item.project %></td> 
                 <td nowrap><%= item.material %></td> 
                 <td nowrap><%= item.color %></td> 
                 <td nowrap>16:30 2021-10-26</td> 
                 <td nowrap><%= item.count %></td> 
-                <td nowrap>15:30</td> 
                 <td nowrap><a href="<%= item.model %>" target="_blank" class="link_model">Link</a></td> 
-                <td nowrap>Pobierz</td> 
-                <td nowrap class="edit">Edytuj</td> 
+                <td nowrap class="edit_order" data-id="<%= item.name %>">Edytuj</td> 
             </tr>
         <% }); %>
     </tbody> 
@@ -75,4 +71,5 @@
 </div>
 
 <%- include('../partials/addOrder') %>
+<script src="/js/orders.js"></script>
 

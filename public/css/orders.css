@@ -137,9 +137,10 @@
     outline: none;
 }
 
-.edit {
+.edit_order {
     /* color: var(--second-color); */
     font-weight: bold;
+    cursor: pointer;
 }
 
 /* -------- start styling table mobile --------*/
