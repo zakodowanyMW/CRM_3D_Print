@@ -28,7 +28,6 @@ const getAllOrders = async (req, res) => {
 
 //get one note
 const oneOrder = async (req, res) => {
-    const id = req.params.id;
     Order.findOne({name: req.params.id}, (err, response) => {
         res.json(response);
     })
@@ -51,17 +50,23 @@ const addOrder = async (req, res) => {
 
 // edit one order
 const updateOrder = async (req, res) => {
-    res.render("forms/createOrder",{
-        name: "tralalala",
-        fileNo: "ADDDEErerr d",
-        user: req.session.user.email
+    const id = req.params.id;
+    const data = req.body;
+
+    Order.findOneAndUpdate({name: id}, data, {upsert: true}, (err) => {
+        if(err) {
+            console.log("Coś poszło nie tak ", err );
+            return;
+        }
+        res.sendStatus(200);
     })
+          
 }
 
 
 // delete one order
 const deletOrder = async (req, res) => {
-    res.send("Tu będzie usuwanie")
+    
 }
 
 //export 
