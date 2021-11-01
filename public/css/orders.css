@@ -56,12 +56,20 @@
     margin-top: 5px;
 }
 
+.valid {
+    color: var(--accent-color);
+    display: inline;
+}
 
+.valid::before {
+    content: " ";
+}
 
 /* ----- end bases styles ----- */
 
 
 /* ----- START MOBILE STYLES------ */
+
 .table_filtr {
     position: relative;
     top: 15px;
@@ -70,6 +78,7 @@
     flex-direction: column;
     padding: 20px 30px;
 }
+
 
 .filters_orders {
     background-color: rgb(255, 255, 255);
@@ -155,6 +164,7 @@ thead th {
     color: white;
     text-align: left;
     display: none;
+    z-index: 1;
 }
 
 thead tr:first-child th {
@@ -218,22 +228,18 @@ td:nth-of-type(9):before {
 }
 
 td:nth-of-type(10):before {
-    content: "Data końca";
-}
-
-td:nth-of-type(11):before {
     content: "Ilość";
 }
 
-td:nth-of-type(12):before {
+td:nth-of-type(11):before {
     content: "Czas";
 }
 
-td:nth-of-type(13):before {
+td:nth-of-type(12):before {
     content: "Bryła";
 }
 
-td:nth-of-type(14):before {
+td:nth-of-type(13):before {
     content: "Link";
 }
 
@@ -273,11 +279,11 @@ tbody tr td a.link_model {
     .table_filtr {
         position: sticky;
         position: -webkit-sticky;
-        top: 85px;
+        top: 71px;
         background-color: rgb(255, 255, 255);
         flex-direction: row;
         justify-content: space-between;
-        padding: 0;
+        padding: 14px 0 0 0;
         z-index: 2;
     }
 
@@ -315,6 +321,7 @@ tbody tr td a.link_model {
     }
 
     /* -------- start styling table ---------*/
+
     table {
         display: table;
     }
@@ -336,10 +343,11 @@ tbody tr td a.link_model {
         display: table-cell;
     }
 
-    thead tr:first-child th {
+    thead th {
         position: sticky;
         position: -webkit-sticky;
-        top: 174px;
+        /* top: 174px; */
+        top: 0px;
     }
 
     tbody {

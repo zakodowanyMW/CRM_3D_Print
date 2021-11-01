@@ -3,15 +3,15 @@
     <div class="close">X</div>
     <h2>Dodaj nowe zamówienie</h2>
     <div class="form_add_order">
-        <form action="/addOrder" method="POST" autocomplete="off">
+        <form action="/addOrder" method="POST" autocomplete="off" class="handler_form_add_new_order">
             <div class="wrapper">
                 <div class="one">
-                    <label for="name">Podaj nazwę detalu</label>
-                    <input type="text" id="name" name="name" value="" required>
+                    <label for="name">Podaj nazwę detalu<span class="text_valid_item valid"></span></label> 
+                    <input type="text" id="name" name="name" value="" required class="input item">
                 </div>
                 <div class="one">
                     <label for="fileNo">Podaj numer rysunku</label>
-                    <input type="text" id="fileNo" name="fileNo" required >
+                    <input type="text" id="fileNo" name="fileNo" required>
                 </div>
                 <div class="one">
                     <label for="material">Podaj rodzaj materiału</label>
