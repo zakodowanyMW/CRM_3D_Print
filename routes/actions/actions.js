@@ -12,10 +12,20 @@ const homepage = async (req, res) => {
 }
 
 
-//get all orders and page Orders
+//get all orders and filter orders
 const getAllOrders = async (req, res) => {
+    const name = req.query.name ? req.query.name : "" ;
+    const fileNo = req.query.nrFile ? req.query.nrFile : "";
+    const project = req.query.chooseMachine ? req.query.chooseMachine : "";
+    const chooseStatus = req.query.chooseStatus ? req.query.chooseStatus : "";
+
     try{
-    Order.find({}, (err, result) => {
+    Order.find({
+        name: { $regex: name, $options: 'i'},
+        fileNo: { $regex: fileNo, $options: 'i'},
+        project: { $regex: project, $options: 'i'},
+        chooseStatus: { $regex: chooseStatus, $options: 'i'},
+    }, (err, result) => {
         res.render("pages/orders",{
             result,
             user: req.session.user.email

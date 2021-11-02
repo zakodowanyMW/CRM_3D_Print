@@ -67,3 +67,20 @@ function updateOrder(order, id) {
     })
 
 }
+
+
+// ------ start filter orders ----------- //
+const formHandler = document.querySelector(".form_search");
+const nameFilter = document.querySelector(".form_search .search_name input[name='name']").value;
+const nrFile = document.querySelector(".form_search .search_name input[name='nrFile']").value;
+let chooseMachine = document.querySelector(".form_search .choose_machine");
+ chooseMachine = chooseMachine.options[chooseMachine.selectedIndex].value;
+let chooseStatus = document.querySelector(".form_search .choose_status");
+chooseStatus = chooseStatus.options[chooseStatus.selectedIndex].value;
+const param = new URLSearchParams({nameFilter,nrFile, chooseMachine, chooseStatus })
+
+fetch("/showOrders?" + param);
+
+
+// ------ end filter orders ----------- //
+

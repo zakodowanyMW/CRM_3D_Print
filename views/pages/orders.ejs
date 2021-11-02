@@ -5,13 +5,15 @@
         <button class="primary">Dodaj zlecenie</button>
         <p class="order_list_title">Lista zamówień ZD</p>
     </div>
+    <form action="/showOrders" method="GET" class="form_search">
     <div class="filters_orders">
         <div class="filter_group_1">
             <div class="search_name">
-                <input type="search" name="" id="" placeholder="szukaj po nazwie">
-                <input type="search" name="" id="" placeholder="szukaj po nr rys">
+                <input type="search" name="name" id="" placeholder="szukaj po nazwie">
+                <input type="search" name="nrFile" id="" placeholder="szukaj po nr rys">
                 <div class="select_machine_wrapper">
-                    <select name="" id="" class="choose_machine">
+                    <select name="machine" id="" class="choose_machine">
+                        <option value="wybierz">wybierz</option>
                         <option value="Markforged">Markforged</option>
                         <option value="Ubot S320">Ubot S320</option>
                         <option value="Ubot Tower S+">Ubot Tower S+</option>
@@ -19,17 +21,20 @@
                     </select>
                 </div>
                 <div class="select_machine_status">
-                    <select name="" id="" class="choose_machine">
-                        <option value="Markforgedd">Wydane z WZ</option>
-                        <option value="Markforged">Zrealizowane</option>
-                        <option value="Ubot S320">W realizacji</option>
-                        <option value="Ubot Tower S+">Przygotowane</option>
-                        <option value="Urbicum">Nowe zamówienie</option>
+                    <select name="status" id="" class="choose_status">
+                        <option value="wybierz">wybierz</option>
+                        <option value="wydano">Wydane z WZ</option>
+                        <option value="zrealizowano">Zrealizowane</option>
+                        <option value="wrealizacji">W realizacji</option>
+                        <option value="przygotowane">Przygotowane</option>
+                        <option value="nowe">Nowe zamówienie</option>
                     </select>
                 </div>
+                <button type="submit" class="search"><i class='bx bx-search' ></i></button>
             </div>
         </div>
     </div>
+    </form>
 </div>
 <div class="table">
     <table>
