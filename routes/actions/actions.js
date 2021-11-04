@@ -13,10 +13,10 @@ const homepage = async (req, res) => {
 
 
 //get all orders and filter orders
-const getAllOrders = async (req, res) => {
-    const name = req.query.name ? req.query.name : "" ;
+const getAllOrders = (req, res) => {
+    const name = req.query.nameFilter ? req.query.nameFilter : "" ;
     const fileNo = req.query.nrFile ? req.query.nrFile : "";
-    const project = req.query.chooseMachine ? req.query.chooseMachine : "";
+    const project = (req.query.chooseMachine) ? req.query.chooseMachine : "";
     const chooseStatus = req.query.chooseStatus ? req.query.chooseStatus : "";
 
     try{
