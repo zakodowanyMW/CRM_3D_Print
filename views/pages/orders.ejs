@@ -8,8 +8,8 @@
     <div class="filters_orders">
         <div class="filter_group_1">
             <div class="search_name">
-                <input type="search" name="name" id="" placeholder="szukaj po nazwie">
-                <input type="search" name="nrFile" id="" placeholder="szukaj po nr rys">
+                <input type="search" name="name" id="" placeholder="szukaj po nazwie" value="<%=name%>">
+                <input type="search" name="nrFile" id="" placeholder="szukaj po nr rys" value="<%=fileNo%>">
                 <div class="select_machine_wrapper">
                     <select name="machine" id="" class="choose_machine">
                         <option value="wybierz">wybierz</option>
@@ -46,7 +46,7 @@
             <th nowrap>Projekt</th>
             <th nowrap>Materiał</th>
             <th nowrap>Kolor</th>
-            <th nowrap>Zrealizowano</th>
+            <th nowrap>Utworzono</th>
             <th nowrap>Ilość</th>
             <th nowrap>Bryła</th>
             <th nowrap>Edytuj</th>
@@ -72,6 +72,16 @@
     </tbody> 
 </table>
 </div>
+
+<section class="pagination_order">
+    <div class="page_counter">
+        Strona 1 z <span><%= pageNo %></span> 
+    </div>
+    <% for(let i = 1; i <= pageNo; i++) {  %>
+    <li class="page active"><%= i %></li>
+    <% } %>
+
+</section>
 
 <%- include('../partials/addOrder') %>
 <script src="/js/orders.js"></script>

@@ -13,28 +13,54 @@ const homepage = async (req, res) => {
 
 
 //get all orders and filter orders
-const getAllOrders = (req, res) => {
+const getAllOrders = async (req, res) => {
     const name = req.query.nameFilter ? req.query.nameFilter : "" ;
     const fileNo = req.query.nrFile ? req.query.nrFile : "";
     const project = (req.query.chooseMachine) ? req.query.chooseMachine : "";
     const chooseStatus = req.query.chooseStatus ? req.query.chooseStatus : "";
+    const page = req.query.page ? Number(req.query.page) : 1;
+    const perPage = 3;
 
     try{
-    Order.find({
+    let result = await Order.find({
         name: { $regex: name, $options: 'i'},
         fileNo: { $regex: fileNo, $options: 'i'},
         project: { $regex: project, $options: 'i'},
         chooseStatus: { $regex: chooseStatus, $options: 'i'},
-    }, (err, result) => {
+    });
+        const pageNo = (Math.floor((result.length - 1) / perPage) + 1) || 1;
+        result = result.slice(perPage*(page-1),page*perPage);
         res.render("pages/orders",{
             result,
+            pageNo,
+            name, fileNo, project, chooseStatus,
             user: req.session.user.email
         }); 
-    })
     } catch(e) {
         res.status(500).send(e);;
-    }       
+    } 
+    
+    //secend way but i cant return pageNo correct
+    // try{
+    // Order.find({
+    //     name: { $regex: name, $options: 'i'},
+    //     fileNo: { $regex: fileNo, $options: 'i'},
+    //     project: { $regex: project, $options: 'i'},
+    //     chooseStatus: { $regex: chooseStatus, $options: 'i'},
+    // }, (err, result) => {
+    //     const pageNo = result.length;
+    //     console.log(result.length);
+    //     res.render("pages/orders",{
+    //         result,
+    //         pageNo,
+    //         user: req.session.user.email
+    //     }); 
+    // }).skip(perPage*(page-1)).limit(perPage);
+    // } catch(e) {
+    //     res.status(500).send(e);;
+    // }       
 }
+
 
 //get one note
 const oneOrder = async (req, res) => {

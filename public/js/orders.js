@@ -70,8 +70,7 @@ function updateOrder(order, id) {
 
 
 // ------ start filter orders ----------- //
-const formHandler = document.querySelector("button.search");
-formHandler.addEventListener("click", () => {
+function generateURL(page = 1) {
     const nameFilter = document.querySelector(".filters_orders .search_name input[name='name']").value;
     const nrFile = document.querySelector(".filters_orders .search_name input[name='nrFile']").value;
     let chooseMachine = document.querySelector(".filters_orders .choose_machine");
@@ -80,12 +79,27 @@ formHandler.addEventListener("click", () => {
     let chooseStatus = document.querySelector(".filters_orders .choose_status");
     chooseStatus = chooseStatus.options[chooseStatus.selectedIndex].value;
     chooseStatus = chooseStatus === "wybierz" ? "" : chooseStatus;
-    const param = new URLSearchParams({nameFilter,nrFile, chooseMachine, chooseStatus })
+    const param = new URLSearchParams({nameFilter,nrFile, chooseMachine, chooseStatus, page })
     console.log(param)
     location.href = "/showOrders?" + param;
+}
+
+function getPageNumber() {
+    const pages = document.querySelectorAll(".pagination_order .page") ;
+    pages.forEach(function(page) {
+        page.addEventListener("click", function(){
+            return generateURL(this.textContent)
+        })
+    })
+}
+
+getPageNumber();
+
+//click search button with filter options
+const formHandler = document.querySelector("button.search");
+formHandler.addEventListener("click", () => {
+    generateURL();
 })
-
-
 
 // ------ end filter orders ----------- //
 
