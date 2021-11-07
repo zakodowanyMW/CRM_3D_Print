@@ -75,10 +75,10 @@ function generateURL(page = 1) {
     const nrFile = document.querySelector(".filters_orders .search_name input[name='nrFile']").value;
     let chooseMachine = document.querySelector(".filters_orders .choose_machine");
     chooseMachine = chooseMachine.options[chooseMachine.selectedIndex].value;
-    chooseMachine = chooseMachine === "wybierz" ? "" : chooseMachine;
+    chooseMachine = chooseMachine === "wszystko" ? "" : chooseMachine;
     let chooseStatus = document.querySelector(".filters_orders .choose_status");
     chooseStatus = chooseStatus.options[chooseStatus.selectedIndex].value;
-    chooseStatus = chooseStatus === "wybierz" ? "" : chooseStatus;
+    chooseStatus = chooseStatus === "wszystko" ? "" : chooseStatus;
     const param = new URLSearchParams({nameFilter,nrFile, chooseMachine, chooseStatus, page })
     console.log(param)
     location.href = "/showOrders?" + param;
@@ -103,3 +103,21 @@ formHandler.addEventListener("click", () => {
 
 // ------ end filter orders ----------- //
 
+
+//reset filters
+const resetFilters = document.querySelector(".bx-filter.reset_filtr");
+resetFilters.addEventListener("click", () => {
+    location.href = "/showOrders";
+})
+
+
+//status backgrund
+const statusBackground = document.querySelectorAll(".order_list .status");
+statusBackground.forEach(item => {
+    if(item.textContent === "Nowo dodane") { item.style.backgroundColor = "#64DD17"}
+        else if(item.textContent === "Przygotowane") {item.style.backgroundColor = "#43A047"} 
+        else if(item.textContent === "W realizacji") {item.style.backgroundColor = "#FF9900"} 
+        else if(item.textContent === "Zrealizowane") {item.style.backgroundColor = "#0099FF"} 
+        else if(item.textContent === "Błąd wydruku") {item.style.backgroundColor = "#FF0033"}
+        else if(item.textContent === "Wydane z WZ") {item.style.backgroundColor = "#ffc933"} 
+});

@@ -11,29 +11,66 @@ const homepage = async (req, res) => {
     }
 }
 
-
-//get all orders and filter orders
-const getAllOrders = async (req, res) => {
+// production
+const production = async (req, res) => {
     const name = req.query.nameFilter ? req.query.nameFilter : "" ;
     const fileNo = req.query.nrFile ? req.query.nrFile : "";
     const project = (req.query.chooseMachine) ? req.query.chooseMachine : "";
-    const chooseStatus = req.query.chooseStatus ? req.query.chooseStatus : "";
+    const status = req.query.chooseStatus ? req.query.chooseStatus : "";
     const page = req.query.page ? Number(req.query.page) : 1;
-    const perPage = 3;
+    const perPage = 15;
 
     try{
     let result = await Order.find({
         name: { $regex: name, $options: 'i'},
         fileNo: { $regex: fileNo, $options: 'i'},
         project: { $regex: project, $options: 'i'},
-        chooseStatus: { $regex: chooseStatus, $options: 'i'},
+        status: { $regex: status, $options: 'i'},
+    });
+        const pageNo = (Math.floor((result.length - 1) / perPage) + 1) || 1;
+        result = result.slice(perPage*(page-1),page*perPage);
+        res.render("pages/production",{
+            result,
+            pageNo,
+            page,
+            name, 
+            fileNo, 
+            project : project || "wszystko", 
+            chooseStatus: status || "wszystko" ,
+            user: req.session.user.email
+        }); 
+    } catch(e) {
+        res.status(500).send(e);;
+    }       
+}
+
+
+//get all orders and filter orders
+const getAllOrders = async (req, res) => {
+    const name = req.query.nameFilter ? req.query.nameFilter : "" ;
+    const fileNo = req.query.nrFile ? req.query.nrFile : "";
+    const project = (req.query.chooseMachine) ? req.query.chooseMachine : "";
+    const status = req.query.chooseStatus ? req.query.chooseStatus : "";
+    const page = req.query.page ? Number(req.query.page) : 1;
+    const perPage = 15;
+
+    try{
+    let result = await Order.find({
+        name: { $regex: name, $options: 'i'},
+        fileNo: { $regex: fileNo, $options: 'i'},
+        project: { $regex: project, $options: 'i'},
+        status: { $regex: status, $options: 'i'},
     });
         const pageNo = (Math.floor((result.length - 1) / perPage) + 1) || 1;
         result = result.slice(perPage*(page-1),page*perPage);
         res.render("pages/orders",{
             result,
             pageNo,
-            name, fileNo, project, chooseStatus,
+            page,
+            name, 
+            fileNo, 
+            project : project || "wszystko", 
+            chooseStatus: status || "wszystko" ,
             user: req.session.user.email
         }); 
     } catch(e) {
@@ -107,8 +144,9 @@ const deletOrder = async (req, res) => {
 
 //export 
 module.exports = {
-    getAllOrders,
     homepage,
+    production,
+    getAllOrders,
     addOrder,
     oneOrder,
     updateOrder,

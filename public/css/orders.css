@@ -110,6 +110,11 @@
     margin-bottom: 7px;
 }
 
+
+.filter_group_1 input::placeholder {
+    color: black;
+}
+
 .select_machine_status {
     border: none;
     background-color: #eeeeee;
@@ -162,6 +167,18 @@ button.search .bx-search {
     /* color: var(--second-color); */
     font-weight: bold;
     cursor: pointer;
+}
+
+.bx-filter.reset_filtr {
+    font-size: 1.2rem;
+    color: var(--first-hover-color);
+    cursor: pointer;
+    margin-top: -5px;
+    margin-right: -5px;
+}
+
+.bx-filter.reset_filtr:hover {
+    color: white;
 }
 
 /* -------- start styling table mobile --------*/
@@ -278,6 +295,16 @@ td p.status {
     border-radius: 5px;
     background-color: var(--first-hover-color);
     display: inline;
+    color: white;
+}
+
+td span.dot {
+    width: 8px;
+    height: 8px;
+    margin-right: 5px;
+    border-radius: 50%;
+    background-color: var(--first-hover-color);
+    display: inline-block;
 }
 
 tbody tr td a.link_model {
@@ -297,6 +324,7 @@ section.pagination_order {
     margin-left: auto;
     bottom: 0;
     margin-top: 15px;
+    margin-bottom: 15px;
     padding: 5px 35px;
     font-size: 0.9rem;
     cursor: pointer;
@@ -318,6 +346,7 @@ section.pagination_order li.active {
 section.pagination_order .page_counter {
     padding: 10px 40px 10px 10px;
 }
+
 
 /* -------- end styling table mobile --------*/
 

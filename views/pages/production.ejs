@@ -2,7 +2,7 @@
 
 <div class="table_filtr">
     <div class="add_btn">
-        <button class="primary">Dodaj zlecenie</button>
+        <button class="primary">Duplikuj</button>
         <p class="order_list_title">Lista zamówień ZD</p>
     </div>
     <div class="filters_orders">
@@ -43,40 +43,35 @@
     <thead>
         <tr>
             <th nowrap><i class='bx bx-filter reset_filtr'></i></th>
-            <th nowrap>Nr ZD</th>
+            <th nowrap>Nr ZP</th>
             <th nowrap>Nazwa</th>
             <th nowrap>Nr rys</th>
-            <th nowrap>Projekt</th>
+            <th nowrap>Drukarka</th>
             <th nowrap>Ilość</th>
-            <th nowrap>Materiał</th>
-            <th nowrap>Kolor</th>
             <th nowrap>Status</th>
-            <th nowrap>Utworzono</th>
-            <th nowrap>Bryła</th>
+            <th nowrap>Data startu</th>
             <th nowrap>Edytuj</th>
+            <th nowrap>X</th>            
         </tr>
     </thead>
     <tbody>
         <% result.forEach(item => { %>
             <tr class="order_list">
                 <td nowrap><input type="checkbox" name="" id=""></td>
-                <td nowrap>ZD/245</td>
+                <td nowrap>ZP/245-1/245</td>
                 <td nowrap><%= item.name %></td> 
                 <td nowrap><div class="drugi"><%= item.fileNo %></div></td> 
                 <td nowrap><span class="dot"></span><%= item.project %></td> 
                 <td nowrap><%= item.count %></td> 
-                <td nowrap><%= item.material %></td> 
-                <td nowrap><%= item.color %></td> 
                 <td nowrap><p class="status"><%= item.status %></p></td> 
-                <td nowrap>2021-10-26</td> 
-                <td nowrap><a href="<%= item.model %>" target="_blank" class="link_model">Link</a></td> 
+                <td nowrap>2021-10-26 16:30</td> 
                 <td nowrap class="edit_order" data-id="<%= item.name %>">Edytuj</td> 
+                <td nowrap class="delete_order" data-id="<%= item.name %>"><i class='bx bxs-trash' style="color:var(--second-color)"></i></td> 
             </tr>
         <% }); %>
     </tbody> 
 </table>
 </div>
-
 <section class="pagination_order">
     <div class="page_counter">
         Strona <span class="active_page"><%= page %></span> z <span><%= pageNo %></span> 
@@ -89,6 +84,7 @@
     <% }} %>
 
 </section>
+
 
 <%- include('../partials/addOrder') %>
 <script src="/js/orders.js"></script>

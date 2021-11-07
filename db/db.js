@@ -33,7 +33,12 @@ const orderSchema = new Schema( {
     model: {
         type: String,
         required: true,
+    },
+    status: {
+        type: String,
+        default: "Nowo dodane",
     }
+
 })
 
 const Order = mongoose.model('Order', orderSchema)
